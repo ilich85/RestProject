@@ -64,7 +64,7 @@ public class UserInfoServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void addUserInfo_whenServerError_returnException() {
+    public void addUserInfo_whenServerThrowException_returnException() {
         doThrow(new DataAccessResourceFailureException(ERROR)).when(userInfoRepository).add(userInfo);
         userInfoService.addUserInfo(userInfo);
     }
@@ -76,7 +76,7 @@ public class UserInfoServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void updateUserInfo_whenServerError_returnException() {
+    public void updateUserInfo_whenServerThrowException_returnException() {
         doThrow(new DataAccessResourceFailureException(ERROR)).when(userInfoRepository).update(userInfo);
         userInfoService.updateUserInfo(userInfo);
     }
@@ -97,7 +97,7 @@ public class UserInfoServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void removeProfile_whenServerError_returnException() {
+    public void removeProfile_whenServerThrowException_returnException() {
         when(advertRepository.usersAdverts(2)).thenReturn(new ArrayList<>());
         doNothing().when(advertInfoRepository).remove(2);
         doNothing().when(advertRepository).removeUserAdverts(2);

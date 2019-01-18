@@ -43,7 +43,7 @@ public class AdvertInfoServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void addAdvertInfo_whenServerError_returnException() {
+    public void addAdvertInfo_whenServerThrowException_returnException() {
         when(advertInfoRepository.add(advertInfo)).thenThrow(new DataAccessResourceFailureException("error"));
         advertInfoService.addAdvertInfo(advertInfo);
     }
@@ -55,7 +55,7 @@ public class AdvertInfoServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void updateAdvertInfo_whenServerError_returnException() {
+    public void updateAdvertInfo_whenServerThrowException_returnException() {
         doThrow(new DataAccessResourceFailureException(ERROR)).when(advertInfoRepository).update(advertInfo);
         advertInfoService.updateAdvertInfo(advertInfo);
     }

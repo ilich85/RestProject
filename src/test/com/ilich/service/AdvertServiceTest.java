@@ -47,12 +47,6 @@ public class AdvertServiceTest {
     @Mock
     private AdvertInfoRepository advertInfoRepository;
 
-    @Test(expected = EmptyResultDataAccessException.class)
-    public void getAll_whenAdvertsDBisEmpty_returnException() {
-        when(advertRepository.findAll()).thenThrow(new EmptyResultDataAccessException(1));
-        advertService.getAll();
-    }
-
     @Before
     public void setUp() {
         advert1 = new AdvertData();
@@ -78,6 +72,11 @@ public class AdvertServiceTest {
         list.add(advert1);
     }
 
+    @Test(expected = EmptyResultDataAccessException.class)
+    public void getAll_whenAdvertsDBisEmpty_returnException() {
+        when(advertRepository.findAll()).thenThrow(new EmptyResultDataAccessException(1));
+        advertService.getAll();
+    }
 
     @Test
     public void getAll_whenDBisNotEmpty_returnList() {
@@ -105,7 +104,6 @@ public class AdvertServiceTest {
         when(advertRepository.findOne(1)).thenReturn(advert1);
         when(advertInfoRepository.findOne(1)).thenReturn(advertInfo1);
         when(userInfoRepository.findOne(1)).thenReturn(userInfo1);
-
         assertEquals("Ford", advertService.getFullAdvertById(1).getAdvertInfo().getCompany());
     }
 
@@ -135,7 +133,7 @@ public class AdvertServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void addAdvert_whenServerError_returnException() {
+    public void addAdvert_whenServerThrowException_returnException() {
         doThrow(new DataAccessResourceFailureException(ERROR)).when(advertRepository).add(advert1);
         advertService.addAdvert(advert1);
     }
@@ -147,7 +145,7 @@ public class AdvertServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void removeAdvert_whenServerError_returnException() {
+    public void removeAdvert_whenServerThrowException_returnException() {
         doNothing().when(advertInfoRepository).remove(1);
         doThrow(new DataAccessResourceFailureException(ERROR)).when(advertInfoRepository).remove(1);
         when(advertRepository.findOne(1)).thenReturn(advert1);

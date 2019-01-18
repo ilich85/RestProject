@@ -18,6 +18,6 @@ class CheckInfoFields implements ConstraintValidator<UserInfo, UserInfoData> {
     public boolean isValid(UserInfoData uid, ConstraintValidatorContext constraintValidatorContext) {
         return uid.getName().length() > 2 && uid.getName().length() < 25 &&
                 uid.getCity().length() > 3 && uid.getCity().length() < 25 &&
-                valueOf(uid.getPhone()).length() == 10;
+                valueOf(uid.getPhone()).length() == 9;
     }
 }

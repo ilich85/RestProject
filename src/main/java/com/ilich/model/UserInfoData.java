@@ -6,8 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,18 +18,16 @@ public class UserInfoData {
     private int idUserInfo;
 
     @NotNull
-    @Size(min = 6, max = 25)
+    @Size(min = 3, max = 25)
     @JsonView(View.AuthorDetails.class)
-    private String name = "";
+    private String name;
 
     @NotNull
-    @Size(min = 6, max = 25)
+    @Size(min = 4, max = 25)
     @JsonView(View.AuthorDetails.class)
-    private String city = "";
+    private String city;
 
     @NotNull
-    @Min(10)
-    @Max(10)
     @JsonView(View.AuthorDetails.class)
     private int phone;
 

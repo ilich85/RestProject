@@ -9,8 +9,7 @@ import javax.validation.ConstraintValidatorContext;
 public class CheckAuthFields implements ConstraintValidator<UserAuth, UserAuthData> {
 
     @Override
-    public void initialize(UserAuth constraintAnnotation) {
-    }
+    public void initialize(UserAuth constraintAnnotation) {}
 
     @Override
     public boolean isValid(UserAuthData authData, ConstraintValidatorContext constraintValidatorContext) {

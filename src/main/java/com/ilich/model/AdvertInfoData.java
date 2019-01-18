@@ -22,17 +22,17 @@ public class AdvertInfoData {
     @NotNull
     @Size(min = 3, max = 25)
     @JsonView(View.AdvertDetails.class)
-    private String company = "";
+    private String company;
 
     @NotNull
     @Size(min = 1, max = 25)
     @JsonView(View.AdvertDetails.class)
-    private String model = "";
+    private String model;
 
     @NotNull
     @Size(min = 3, max = 25)
     @JsonView(View.AdvertDetails.class)
-    private String color = "";
+    private String color;
 
     @NotNull
     @Min(1930)

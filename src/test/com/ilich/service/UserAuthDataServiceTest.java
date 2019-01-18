@@ -79,7 +79,7 @@ public class UserAuthDataServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void register_whenServerError_returnException() {
+    public void register_whenServerThrowException_returnException() {
         UserAuthData data = new UserAuthData();
         data.setUsername("serverEx");
         data.setPassword("password");
@@ -96,7 +96,7 @@ public class UserAuthDataServiceTest {
     }
 
     @Test(expected = DataAccessException.class)
-    public void updatePassword_whenServerError_returnException() {
+    public void updatePassword_whenServerThrowException_returnException() {
         doThrow(new DataAccessResourceFailureException(ERROR)).when(authDataRepository).update(NEW_PASSWORD, 1);
         doReturn(OLD_PASSWORD).when(authDataRepository).findPassword(1);
         userAuthService.updatePassword(OLD_PASSWORD, NEW_PASSWORD, 1);

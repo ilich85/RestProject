@@ -22,6 +22,7 @@
         <mockito-version>1.9.5</mockito-version>
         <mysql-version>8.0.11</mysql-version>
         <hibernate-version>5.2.4.Final</hibernate-version>
+        <el-version>2.2.4</el-version>
         <validation-version>2.0.1.Final</validation-version>
         <lombok-version>1.18.4</lombok-version>
         <jackson-version>2.9.7</jackson-version>
@@ -59,6 +60,11 @@
             <version>${hibernate-version}</version>
         </dependency>
         <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${el-version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>${validation-version}</version>
@@ -93,5 +99,17 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
