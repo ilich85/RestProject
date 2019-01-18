@@ -12,11 +12,11 @@ import javax.sql.DataSource;
 @Repository
 public class UserInfoRepository {
 
-    private static final String SELECT = "SELECT * FROM users_info WHERE user_id = ?";
-    private static final String INSERT = "INSERT INTO users_info set name = ?, city = ?, phone = ?, user_id = ?";
-    private static final String UPDATE = "UPDATE users_info set name = ?, city = ?, phone = ? WHERE user_id = ?";
-    private static final String DELETE = "DELETE FROM users_info WHERE user_id = ?";
-
+    private static final String SELECT_USER_INFO_BY_ID = "SELECT * FROM users_info WHERE user_id = ?";
+    private static final String INSERT_USER_INFO = "INSERT INTO users_info set name = ?, city = ?, phone = ?, user_id = ?";
+    private static final String UPDATE_USER_INFO = "UPDATE users_info set name = ?, city = ?, phone = ? WHERE user_id = ?";
+    private static final String DELETE_USER_INFO = "DELETE FROM users_info WHERE user_id = ?";
+    
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
