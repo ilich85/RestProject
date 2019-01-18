@@ -19,12 +19,12 @@ import static java.sql.Statement.RETURN_GENERATED_KEYS;
 @Repository
 public class AdvertInfoRepository {
 
-    private static final String SELECT = "SELECT * FROM adverts_info WHERE id_adverts_info = ?";
-    private static final String INSERT = "INSERT INTO adverts_info SET company = ?, model = ?, color = ?," +
+     private static final String SELECT_ADVERT_INFO_BY_ID = "SELECT * FROM adverts_info WHERE id_adverts_info = ?";
+    private static final String INSERT_ADVERT_INFO = "INSERT INTO adverts_info SET company = ?, model = ?, color = ?," +
             " year_of_issue = ?, price = ?";
-    private static final String UPDATE = "UPDATE adverts_info SET company = ?, model = ?, color = ?," +
+    private static final String UPDATE_ADVERT_INFO = "UPDATE adverts_info SET company = ?, model = ?, color = ?," +
             " year_of_issue = ?, price = ? WHERE id_adverts_info = ?";
-    private static final String DELETE = "DELETE FROM adverts_info WHERE id_adverts_info = ?";
+    private static final String DELETE_ADVERT_INFO = "DELETE FROM adverts_info WHERE id_adverts_info = ?";
 
     private JdbcTemplate jdbcTemplate;
 
